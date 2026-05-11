@@ -33,11 +33,33 @@ export default function SideMenu({ open, setOpen }: Props) {
         </div>
 
         <nav className="p-4 flex flex-col gap-4">
-          <Link href="#" className="hover:text-black text-gray-600">
-            Men
+          <Link
+            href={`/category/${encodeURIComponent("men's clothing")}`}
+            className="hover:text-black text-gray-600"
+            onClick={() => setOpen(false)}
+          >
+            Men&apos;s Clothing
           </Link>
-          <Link href="#" className="hover:text-black text-gray-600">
-            Women
+          <Link
+            href={`/category/${encodeURIComponent("women's clothing")}`}
+            className="hover:text-black text-gray-600"
+            onClick={() => setOpen(false)}
+          >
+            Women&apos;s Clothing
+          </Link>
+          <Link
+            href="/category/jewelery"
+            className="hover:text-black text-gray-600"
+            onClick={() => setOpen(false)}
+          >
+            Jewelery
+          </Link>
+          <Link
+            href="/category/electronics"
+            className="hover:text-black text-gray-600"
+            onClick={() => setOpen(false)}
+          >
+            Electronics
           </Link>
         </nav>
       </div>
