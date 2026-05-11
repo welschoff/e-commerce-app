@@ -17,7 +17,9 @@ function ProductCard({ ...props }: ProductCardProps) {
           className="bg-white p-5 object-contain rounded-lg"
           alt="Product-Image"
           src={props.image}
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           fill
+          priority
         />
       </div>
 
