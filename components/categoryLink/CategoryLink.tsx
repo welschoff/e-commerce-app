@@ -14,7 +14,9 @@ export default function CategoryLink({
 }: CategoryLinkProps) {
   const pathname = usePathname();
 
-  const isActive = pathname === href;
+  const normalize = (value: string) => decodeURIComponent(value);
+
+  const isActive = normalize(pathname) === normalize(href);
 
   return (
     <Link
