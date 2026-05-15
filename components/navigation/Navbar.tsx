@@ -13,7 +13,7 @@ export default function Navbar() {
 
   return (
     <>
-      <header className="h-16 p-4 flex justify-between items-center border-b border-gray-200">
+      <header className="fixed top-0 w-full z-5 bg-white h-16 p-4 flex justify-between items-center border-b border-gray-200">
         <button onClick={() => setOpen(true)}>
           <Bars3Icon className="w-6 h-6 text-gray-700" />
         </button>
