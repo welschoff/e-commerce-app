@@ -1,7 +1,7 @@
 'use client';
 
 import { XMarkIcon } from '@heroicons/react/24/outline';
-import Link from 'next/link';
+import CategoryLink from '../categoryLink/CategoryLink';
 
 type Props = {
   open: boolean;
@@ -33,12 +33,27 @@ export default function SideMenu({ open, setOpen }: Props) {
         </div>
 
         <nav className="p-4 flex flex-col gap-4">
-          <Link href="#" className="hover:text-black text-gray-600">
-            Men
-          </Link>
-          <Link href="#" className="hover:text-black text-gray-600">
-            Women
-          </Link>
+          <CategoryLink label="Home" href="/" onClick={() => setOpen(false)} />
+          <CategoryLink
+            label="Men’s Clothing"
+            href={`/category/${encodeURIComponent(`men's clothing`)}`}
+            onClick={() => setOpen(false)}
+          />
+          <CategoryLink
+            label="Women’s Clothing"
+            href={`/category/${encodeURIComponent(`women's clothing`)}`}
+            onClick={() => setOpen(false)}
+          />
+          <CategoryLink
+            label="Electronics"
+            href="/category/electronics"
+            onClick={() => setOpen(false)}
+          />
+          <CategoryLink
+            label="Jewelery"
+            href="/category/jewelery"
+            onClick={() => setOpen(false)}
+          />
         </nav>
       </div>
     </>

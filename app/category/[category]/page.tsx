@@ -2,9 +2,23 @@ import ProductCard, {
   ProductCardProps,
 } from '@/components/productCard/ProductCard';
 
-export default async function Home() {
-  const data = await fetch('https://fakestoreapi.com/products');
-  const products = await data.json();
+async function getProductsByCategory(category: string) {
+  const res = await fetch(
+    `https://fakestoreapi.com/products/category/${category}`,
+  );
+  return res.json();
+}
+
+async function CategoryPage({
+  params,
+}: {
+  params: Promise<{ category: string }>;
+}) {
+  const { category } = await params;
+
+  const productData = getProductsByCategory(category);
+
+  const [products] = await Promise.all([productData]);
 
   return (
     <div className="flex flex-wrap justify-center gap-3 py-5">
@@ -21,3 +35,5 @@ export default async function Home() {
     </div>
   );
 }
+
+export default CategoryPage;
