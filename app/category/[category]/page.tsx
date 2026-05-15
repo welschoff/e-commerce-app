@@ -21,7 +21,7 @@ async function CategoryPage({
   const [products] = await Promise.all([productData]);
 
   return (
-    <div className="flex flex-wrap justify-center gap-3 pt-5">
+    <div className="flex flex-wrap justify-center gap-3 py-5">
       {products.map((product: ProductCardProps) => (
         <div key={product.id}>
           <ProductCard

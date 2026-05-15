@@ -7,7 +7,7 @@ export default async function Home() {
   const products = await data.json();
 
   return (
-    <div className="flex flex-wrap justify-center gap-3 pt-5">
+    <div className="flex flex-wrap justify-center gap-3 py-5">
       {products.map((product: ProductCardProps) => (
         <div key={product.id}>
           <ProductCard
