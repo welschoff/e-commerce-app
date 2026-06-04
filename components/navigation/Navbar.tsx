@@ -4,9 +4,10 @@ import { useState } from 'react';
 import {
   Bars3Icon,
   ShoppingCartIcon,
-  UserIcon,
+  ArrowRightStartOnRectangleIcon,
 } from '@heroicons/react/24/outline';
 import SideMenu from './SideMenu';
+import { logout } from '@/app/login/actions';
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -20,7 +21,11 @@ export default function Navbar() {
 
         <div className="flex items-center gap-4">
           <ShoppingCartIcon className="w-6 h-6 text-gray-700" />
-          <UserIcon className="w-6 h-6 text-gray-700" />
+          <form action={logout}>
+            <button type="submit">
+              <ArrowRightStartOnRectangleIcon className="w-6 h-6 text-gray-700" />
+            </button>
+          </form>
         </div>
       </header>
 

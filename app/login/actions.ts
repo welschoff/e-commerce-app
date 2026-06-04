@@ -19,7 +19,7 @@ export async function login(formData: FormData) {
 
   // Löscht den Cache für die Seiten, damit der Login-Status sofort überall aktiv ist
   revalidatePath('/', 'layout');
-  redirect('/dashboard');
+  redirect('/');
 }
 
 export async function signup(formData: FormData) {
@@ -39,4 +39,17 @@ export async function signup(formData: FormData) {
   redirect(
     '/login?message=Prüfe dein E-Mail-Postfach, um die Registrierung abzuschließen.',
   );
+}
+
+export async function logout() {
+  const supabase = await createClient();
+
+  // Meldet den Benutzer bei Supabase ab und löscht die Cookies im Browser
+  await supabase.auth.signOut();
+
+  // Löscht den Next.js Cache, damit die Benutzeroberfläche sofort merkt, dass der User weg ist
+  revalidatePath('/', 'layout');
+
+  // Leitet den User nach dem Abmelden z. B. zur Login-Seite oder Startseite weiter
+  redirect('/login');
 }
