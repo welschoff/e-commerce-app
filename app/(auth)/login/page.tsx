@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { login, signup } from './actions';
 
 type SearchParams = Promise<{ error?: string; message?: string }>;
@@ -48,7 +49,6 @@ export default async function LoginPage({
           />
         </div>
 
-        {/* formAction verbindet den Button direkt mit unserer Server-Funktion */}
         <button
           formAction={login}
           className="bg-emerald-600 hover:bg-emerald-700 text-white p-2 rounded font-medium mt-2"
@@ -61,6 +61,11 @@ export default async function LoginPage({
         >
           Registrieren
         </button>
+        <div className="flex full justify-center">
+          <Link href="/" className="underline">
+            Weiter als Gast
+          </Link>
+        </div>
       </form>
     </div>
   );
